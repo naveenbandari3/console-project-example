@@ -10,5 +10,5 @@ $> git clone https://github.com/cristianprochnow/console-project.git
 
 $> cd console-project/
 
-$> dotnet run
+$> dotnet run 
 ```
