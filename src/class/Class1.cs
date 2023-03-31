@@ -1,17 +1,22 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.IO.Compression;
 
-namespace OWASP.WebGoat.NET
+
+
+
+public class ExampleController
 {
-  public partial class InjectionExercise : System.Web.UI.Page
-  {
-    protected void Page_Load(object sender, EventArgs e)
-    {
+  private static string TargetDirectory = "/example/directory/";
 
-    }
+
+
+  public void ExtractEntry(IEnumerator<ZipArchiveEntry> entriesEnumerator)
+  {
+    ZipArchiveEntry entry = entriesEnumerator.Current;
+    string destinationPath = Path.Combine(TargetDirectory, entry.FullName);
+
+
+
+    entry.ExtractToFile(destinationPath);
   }
 }
